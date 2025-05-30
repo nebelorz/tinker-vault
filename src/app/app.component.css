@@ -1,8 +1,8 @@
 .app-container {
-  padding: 4px;
+  padding: 8px;
   display: flex;
 }
 
 .content {
-  padding: 16px;
+  margin-left: 24px;
 }

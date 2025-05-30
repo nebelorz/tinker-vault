@@ -6,11 +6,11 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./theme-toggle.component.css'],
 })
 export class ThemeToggleComponent implements AfterViewInit {
-  theme: 'light' | 'dark' = 'light';
+  theme: 'retro' | 'dark' = 'retro';
 
   ngAfterViewInit() {
     const saved = localStorage.getItem('theme');
-    this.theme = saved === 'dark' ? 'dark' : 'light';
+    this.theme = saved === 'dark' ? 'dark' : 'retro';
     this.setTheme(this.theme);
 
     const checkbox = document.querySelector<HTMLInputElement>(
@@ -25,13 +25,13 @@ export class ThemeToggleComponent implements AfterViewInit {
     }
   }
 
-  toggleTheme(isDark: boolean) {
-    this.theme = isDark ? 'dark' : 'light';
+  toggleTheme(isdark: boolean) {
+    this.theme = isdark ? 'dark' : 'retro';
     this.setTheme(this.theme);
     localStorage.setItem('theme', this.theme);
   }
 
-  setTheme(theme: 'light' | 'dark') {
+  setTheme(theme: 'retro' | 'dark') {
     document.documentElement.setAttribute('data-theme', theme);
   }
 }
