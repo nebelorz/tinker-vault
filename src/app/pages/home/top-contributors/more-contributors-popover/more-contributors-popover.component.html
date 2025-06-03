@@ -1,4 +1,4 @@
-<div class="dropdown dropdown-hover">
+<div class="dropdown dropdown-hover" [ngClass]="'dropdown-' + dropdownPosition">
   <label tabindex="0" class="btn btn-xs btn-ghost p-0 m-0">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,11 +15,14 @@
       />
     </svg>
   </label>
-  <div tabindex="0" class="dropdown-content card p-1 w-56">
+  <div
+    tabindex="0"
+    class="dropdown-content card p-1 w-40 min-w-[8rem] max-h-64 overflow-y-auto"
+  >
     <ul>
       <li
         *ngFor="let contributor of contributors; let i = index"
-        class="flex items-center py-1"
+        class="flex items-center py-0.5 text-xs"
       >
         <span class="mr-2 font-semibold text-gray-500">{{ i + 4 }}.</span>
         <span class="font-bold">{{ contributor.name }}</span>

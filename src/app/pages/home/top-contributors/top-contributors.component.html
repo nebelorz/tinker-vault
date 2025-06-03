@@ -1,56 +1,17 @@
 <section
   class="bg-base-200 w-full md:w-80 card shadow rounded-box p-6 relative"
 >
-  <div class="absolute top-4 right-4 z-10">
-    <div class="dropdown dropdown-hover dropdown-end">
-      <label tabindex="0" class="btn btn-xs btn-ghost p-0 m-0">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-          />
-        </svg>
-      </label>
-
-      <div
-        tabindex="0"
-        class="dropdown-content border border-base-content/10 menu bg-base-100 rounded-box shadow w-56 p-4 z-20 text-sm"
-      >
-        <p class="font-semibold mb-2">
-          Each contribution helps TinkerVault grow 💡
-        </p>
-        <p class="text-xs text-base-content/70 mb-3">
-          Have info to add? Reach out via Discord and we’ll review it together!
-        </p>
-        <a
-          href="https://discord.com/users/your-user-id"
-          target="_blank"
-          class="btn btn-sm btn-primary w-full flex items-center justify-center gap-2"
-        >
-          <svg class="w-6 h-6">
-            <use href="/assets/icons.svg#discord-icon"></use>
-          </svg>
-          Message us on Discord
-        </a>
-      </div>
-    </div>
+  <div class="absolute top-6 right-6">
+    <app-how-to-contribute-mouseover [iconSize]="5"></app-how-to-contribute-mouseover>
   </div>
 
-  <h2 class="card-title text-xl font-semibold mb-2">Top Contributors</h2>
+  <h2 class="card-title text-1xl font-bold mb-2">Top Contributors</h2>
   <ul class="space-y-2">
     <li
       *ngFor="let contributor of getTopContributors(); let i = index"
       class="flex items-center"
     >
-      <span class="mr-2 text-xl">
+      <span class="mr-2 text-xl" style="font-size: 1em">
         <ng-container [ngSwitch]="i">
           <span *ngSwitchCase="0">🥇</span>
           <span *ngSwitchCase="1">🥈</span>
@@ -62,7 +23,10 @@
     </li>
   </ul>
 
-  <div class="absolute left-1 bottom-0">
-    <app-contributors-popover [contributors]="getRestOfContributors()" />
+  <div class="absolute right-1 bottom-0">
+    <app-more-contributors-popover
+      class="dropdown-left"
+      [contributors]="getRestOfContributors()"
+    />
   </div>
 </section>

@@ -4,6 +4,7 @@ import { TopContributorsComponent } from './top-contributors/top-contributors.co
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [WelcomeCardComponent, TopContributorsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
