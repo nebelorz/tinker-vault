@@ -1,4 +1,4 @@
 <label class="swap swap-rotate">
     <input type="checkbox" class="theme-controller" [checked]="theme === 'dark'" (change)="onToggleTheme(); onClickAnimation()" />
-    <i-lucide [img]="theme === 'dark' ? iconDark : iconLight" class="theme-toggle-icon" [class.clicked]="iconClicked"></i-lucide>
+    <i-lucide [img]="theme === 'dark' ? iconDark : iconLight" class="theme-toggle-icon" [class.clicked]="iconClicked" [size]="20"></i-lucide>
 </label>
