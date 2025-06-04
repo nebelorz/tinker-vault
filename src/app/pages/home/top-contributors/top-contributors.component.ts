@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { LucideAngularModule, AwardIcon } from 'lucide-angular';
+
 import { CONTRIBUTORS } from '../../../../assets/data/contributors';
 import type { Contributor } from '../../../interfaces/contributor.interface';
 
@@ -12,6 +14,7 @@ import { HowToContributeMouseoverComponent } from '../../../shared/components/ho
   standalone: true,
   imports: [
     CommonModule,
+    LucideAngularModule,
     ContributorsPopoverComponent,
     HowToContributeMouseoverComponent,
   ],
@@ -21,10 +24,12 @@ import { HowToContributeMouseoverComponent } from '../../../shared/components/ho
 export class TopContributorsComponent {
   contributors: Contributor[] = CONTRIBUTORS;
 
-  getTopContributors(topContributorsNumber: number = 3): Contributor[] {
+  readonly iconAward = AwardIcon;
+
+  getTopContributors(amountOfContributors: number = 3): Contributor[] {
     return [...this.contributors]
       .sort((a, b) => b.amount - a.amount)
-      .slice(0, topContributorsNumber);
+      .slice(0, amountOfContributors);
   }
 
   getRestOfContributors(): Contributor[] {

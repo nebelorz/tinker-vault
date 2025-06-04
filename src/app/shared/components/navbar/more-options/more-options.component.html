@@ -1,33 +1,13 @@
-<div class="dropdown dropdown-hover dropdown-end">
-  <label
-    tabindex="0"
-    class="m-1 swap swap-rotate"
-    style="cursor: pointer"
-    role="button"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="size-6"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
-      />
-    </svg>
-  </label>
-  <ul tabindex="0" class="dropdown-content menu w-56">
-    <li class="disabled">
-      <a>About us<span class="badge badge-xs badge-warning">TO-DO</span></a>
-    </li>
-    <li class="disabled">
-      <a>
-        Submit info!<span class="badge badge-xs badge-warning">TO-DO</span></a
-      >
-    </li>
-  </ul>
+<div class="dropdown dropdown-end">
+    <button type="button" tabindex="0" class="icon-button btn btn-xs btn-ghost">
+        <i-lucide [img]="iconMenu" />
+    </button>
+    <ul tabindex="0" class="dropdown-content menu w-56">
+        <li class="menu-disabled">
+            <a>About us<span class="badge badge-xs badge-warning">TO-DO</span></a>
+        </li>
+        <li class="menu-disabled">
+            <a> Submit info!<span class="badge badge-xs badge-warning">TO-DO</span></a>
+        </li>
+    </ul>
 </div>

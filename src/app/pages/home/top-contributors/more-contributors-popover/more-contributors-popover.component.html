@@ -1,35 +1,14 @@
-<div class="dropdown dropdown-hover" [ngClass]="'dropdown-' + dropdownPosition">
-  <label tabindex="0" class="btn btn-xs btn-ghost p-0 m-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="currentColor"
-      class="size-6"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-      />
-    </svg>
-  </label>
-  <div
-    tabindex="0"
-    class="dropdown-content card p-1 w-40 min-w-[8rem] max-h-64 overflow-y-auto"
-  >
-    <ul>
-      <li
-        *ngFor="let contributor of contributors; let i = index"
-        class="flex items-center py-0.5 text-xs"
-      >
-        <span class="mr-2 font-semibold text-gray-500">{{ i + 4 }}.</span>
-        <span class="font-bold">{{ contributor.name }}</span>
-        <span class="badge badge-success ml-auto">{{
-          contributor.amount
-        }}</span>
-      </li>
-    </ul>
-  </div>
+<div class="dropdown dropdown-right">
+    <button type="button" tabindex="0" class="icon-button btn btn-xs btn-ghost">
+        <i-lucide [img]="iconChevronRight" [size]="16" [strokeWidth]="0.75" />
+    </button>
+    <div tabindex="0" class="dropdown-content card p-1 w-40 min-w-[8rem] max-h-64 overflow-y-auto">
+        <ul>
+            <li *ngFor="let contributor of contributors; let i = index" class="flex items-center py-0.5 text-xs">
+                <span class="ml-0.5 mr-2"><i-lucide [img]="iconAward" [size]="18" color="#5865f2" /></span>
+                <span class="font-bold">{{ contributor.name }}</span>
+                <span class="badge badge-success ml-auto">{{ contributor.amount }}</span>
+            </li>
+        </ul>
+    </div>
 </div>

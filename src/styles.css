@@ -1,15 +1,27 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: retro, dark;
-  root: "app-root";
-  include: ;
-  exclude: ;
-  prefix: ;
-  logs: true;
+    themes: retro, dark;
+    root: "app-root";
+    include: ;
+    exclude: ;
+    prefix: ;
+    logs: true;
 }
 
 @layer components {
-  .dropdown-content {
-    @apply border border-base-content/10 bg-base-200 rounded-box shadow text-sm;
-  }
+    .dropdown-content {
+        @apply border border-base-content/10 bg-base-200 rounded-box shadow text-sm;
+    }
+}
+
+@layer utilities {
+    .icon-button {
+        @apply p-0 m-0 bg-transparent border-none shadow-none outline-none;
+    }
+
+    .icon-button:hover,
+    .icon-button:active,
+    .icon-button:focus {
+        @apply bg-transparent shadow-none;
+    }
 }
