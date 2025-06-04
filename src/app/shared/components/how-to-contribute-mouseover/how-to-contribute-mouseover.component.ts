@@ -10,7 +10,7 @@ import { LucideAngularModule, InfoIcon } from "lucide-angular";
     styleUrl: "./how-to-contribute-mouseover.component.css",
 })
 export class HowToContributeMouseoverComponent {
-    @Input() iconSize: number = 16;
+    @Input() iconSize: number = 18;
 
     iconInfo = InfoIcon;
 }

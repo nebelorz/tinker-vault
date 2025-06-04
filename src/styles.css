@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-    themes: retro, dark;
+    themes: retro, dim;
     root: "app-root";
     include: ;
     exclude: ;
@@ -16,12 +16,12 @@
 
 @layer utilities {
     .icon-button {
-        @apply p-0 m-0 bg-transparent border-none shadow-none outline-none;
+        @apply p-2 rounded-full bg-transparent border-none outline-none cursor-pointer 
+           transition-transform duration-100 ease-out;
     }
 
-    .icon-button:hover,
-    .icon-button:active,
-    .icon-button:focus {
-        @apply bg-transparent shadow-none;
+    .icon-button:active {
+        transform: scale(0.92);
+        transition-duration: 100ms;
     }
 }

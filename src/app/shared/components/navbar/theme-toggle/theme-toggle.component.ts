@@ -10,7 +10,7 @@ import { LucideAngularModule, MoonIcon, SunMediumIcon } from "lucide-angular";
     styleUrls: ["./theme-toggle.component.css"],
 })
 export class ThemeToggleComponent {
-    theme: "dark" | "retro" = (localStorage.getItem("theme") as "dark" | "retro") ?? document.documentElement.getAttribute("data-theme");
+    theme: "dim" | "retro" = (localStorage.getItem("theme") as "dim" | "retro") ?? document.documentElement.getAttribute("data-theme");
     iconClicked = false;
     readonly iconDark = MoonIcon;
     readonly iconLight = SunMediumIcon;
@@ -20,7 +20,7 @@ export class ThemeToggleComponent {
     }
 
     onToggleTheme() {
-        this.theme = this.theme === "dark" ? "retro" : "dark";
+        this.theme = this.theme === "dim" ? "retro" : "dim";
         document.documentElement.setAttribute("data-theme", this.theme);
         localStorage.setItem("theme", this.theme);
     }

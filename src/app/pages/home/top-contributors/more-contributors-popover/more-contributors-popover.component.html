@@ -1,11 +1,11 @@
 <div class="dropdown dropdown-right">
     <button type="button" tabindex="0" class="icon-button btn btn-xs btn-ghost">
-        <i-lucide [img]="iconChevronRight" [size]="16" [strokeWidth]="0.75" />
+        <i-lucide [img]="iconChevronRight" [size]="18" [strokeWidth]="0.75" />
     </button>
     <div tabindex="0" class="dropdown-content card p-1 w-40 min-w-[8rem] max-h-64 overflow-y-auto">
         <ul>
             <li *ngFor="let contributor of contributors; let i = index" class="flex items-center py-0.5 text-xs">
-                <span class="ml-0.5 mr-2"><i-lucide [img]="iconAward" [size]="18" color="#5865f2" /></span>
+                <span class="ml-0.5 mr-2"><i-lucide [img]="iconAward" [size]="18" /></span>
                 <span class="font-bold">{{ contributor.name }}</span>
                 <span class="badge badge-success ml-auto">{{ contributor.amount }}</span>
             </li>
