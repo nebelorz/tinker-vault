@@ -1,4 +1,4 @@
-<dialog #dialog class="modal">
+<dialog #dialog class="modal modal-end">
     <div class="modal-box modal-top p-6 rounded-lg shadow-lg bg-base-100 text-base-content">
         <!-- Close button -->
         <form method="dialog" class="absolute top-3 right-3">
@@ -12,7 +12,7 @@
             </h3>
             <p class="text-sm opacity-80 mb-1">Found incorrect or missing data? Want to add something new?</p>
             <p class="text-sm opacity-70 mb-4">
-                Use the form below to send us your feedback by email, or copy a formatted message for Discord to send us a direct message.
+                Use the form below to send us your feedback by email, or copy a formatted message for Discord and send us a direct message.
             </p>
             <p class="text-sm opacity-60 italic">Your contribution helps keep this project accurate and useful for everyone. Thanks for collaborating!</p>
 
@@ -34,7 +34,7 @@
                 class="textarea rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-base-200 border-0 resize-y"
                 style="width: 100%; max-width: 100%"></textarea>
 
-            <div class="flex gap-4 justify-center" style="width: 100%">
+            <div class="modal-actions-fullwidth">
                 <button type="submit" class="btn btn-primary btn-sm shadow-md transition-transform hover:scale-105" [disabled]="!title || !description">
                     <i-lucide [img]="iconMail" class="icon-wiggle" />
                     Send by Email

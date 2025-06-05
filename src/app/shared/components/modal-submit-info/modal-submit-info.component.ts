@@ -7,6 +7,7 @@ import { LucideAngularModule, MailIcon } from "lucide-angular";
     selector: "app-modal-submit-info",
     standalone: true,
     templateUrl: "./modal-submit-info.component.html",
+    styleUrls: ["./modal-submit-info.component.css"],
     imports: [FormsModule, LucideAngularModule],
 })
 export class ModalSubmitInfoComponent {
