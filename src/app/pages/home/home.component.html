@@ -1,4 +1,9 @@
-<div class="flex flex-col gap-8 md:flex-row">
-  <app-welcome-card class="flex-1"></app-welcome-card>
-  <app-top-contributors class="w-full md:w-80"></app-top-contributors>
+<div class="flex flex-col md:flex-row gap-8">
+    <div class="flex-1 flex flex-col gap-8">
+        <app-welcome-card />
+        <div class="w-full md:w-1/2 md:ml-0 md:mr-auto">
+            <app-npcs-card />
+        </div>
+    </div>
+    <app-top-contributors class="w-full md:w-80" />
 </div>

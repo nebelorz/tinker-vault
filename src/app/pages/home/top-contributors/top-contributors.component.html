@@ -6,7 +6,7 @@
     <h2 class="card-title text-1xl font-bold mb-2">Top Contributors</h2>
     <ul class="space-y-2">
         <li *ngFor="let contributor of getTopContributors(); let i = index" class="flex items-center">
-            <span class="mr-2 text-xl" style="font-size: 1em">
+            <span class="mr-2">
                 <ng-container [ngSwitch]="i">
                     <span *ngSwitchCase="0"><i-lucide [img]="iconAward" class="icon-gold" /></span>
                     <span *ngSwitchCase="1"><i-lucide [img]="iconAward" class="icon-silver" /></span>
@@ -14,7 +14,7 @@
                     <span *ngSwitchDefault><i-lucide [img]="iconAward" /></span>
                 </ng-container>
             </span>
-            <span class="font-bold">{{ contributor.name }}</span>
+            <span class="mb-1">{{ contributor.name }}</span>
             <span class="badge badge-success ml-auto">{{ contributor.amount }}</span>
         </li>
     </ul>

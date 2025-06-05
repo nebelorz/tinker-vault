@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 @import "tailwindcss";
+
 @plugin "daisyui" {
     themes: retro, dim;
     root: "app-root";
@@ -6,6 +8,40 @@
     exclude: ;
     prefix: ;
     logs: true;
+}
+
+body {
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.btn-discord:not(:disabled) {
+    background-color: #5865f2;
+    color: white;
+}
+
+.btn:hover .icon-wiggle {
+    animation: icon-wiggle 0.8s ease-in-out;
+}
+
+@keyframes icon-wiggle {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    20% {
+        transform: rotate(-6deg) scale(1.05);
+    }
+    40% {
+        transform: rotate(6deg) scale(1.05);
+    }
+    60% {
+        transform: rotate(-4deg) scale(1.03);
+    }
+    80% {
+        transform: rotate(3deg) scale(1.01);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
 }
 
 @layer components {

@@ -1,32 +1,19 @@
 <ul class="menu bg-base-300 rounded-box shadow-lg w-40">
-  <!-- NPCs -->
-  <li>
-    <details open>
-      <summary>NPCs</summary>
+    <!-- NPCs -->
+    <li>
+      <a [routerLink]="['/npcs']" routerLinkActive="router-link-active menu-active">NPCs</a>
       <ul>
-        <li>
-          <a [routerLink]="['/npcs']" routerLinkActive="router-link-active">
-            Guide
-            <span class="badge badge-xs badge-warning">NEW</span>
-          </a>
-        </li>
+        <li><a>Guide<span class="badge badge-xs badge-accent">NEW</span></a></li>
         <!-- more to add -->
       </ul>
-    </details>
-  </li>
+    </li>
 
-  <!-- Items -->
-  <li>
-    <details open>
-      <summary>Items</summary>
-      <ul>
-        <li>
-          <a [routerLink]="['/items']" routerLinkActive="router-link-active"
-            >Armors</a
-          >
-        </li>
-        <!-- more to add -->
-      </ul>
-    </details>
-  </li>
+    <!-- Items -->
+    <li class="menu-disabled">
+        <a [routerLink]="['/items']" routerLinkActive="router-link-active menu-active">Items</a>
+        <ul>
+            <li><a></a></li>
+            <!-- more to add -->
+        </ul>
+    </li>
 </ul>
