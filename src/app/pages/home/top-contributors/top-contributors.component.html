@@ -1,25 +1,30 @@
 <section class="bg-base-200 w-full md:w-80 card shadow rounded-box p-6 relative">
-    <div class="absolute top-1 right-1">
-        <app-mouseover-info />
+    <!-- Expand/Minimize button -->
+    <div *ngIf="contributors.length > 3" class="absolute top-3 right-3">
+        <button
+            (click)="toggleContributors($event)"
+            class="icon-button btn btn-xs btn-ghost p-0 min-h-0 h-6 w-6 flex items-center justify-center"
+            aria-label="expand-or-minimize"
+            type="button">
+            <i-lucide [img]="expanded ? iconMinimize : iconMaximize" [size]="14" />
+        </button>
     </div>
 
-    <h2 class="card-title text-1xl font-bold mb-2">Top Contributors</h2>
-    <ul class="space-y-2">
-        <li *ngFor="let contributor of getTopContributors(); let i = index" class="flex items-center">
+    <h2 class="card-title text-1xl font-bold mb-1">
+        Top Contributors
+        <app-mouseover-info class="-ml-3" />
+    </h2>
+    <ul class="space-y-2 text-sm" [ngClass]="{ 'text-xs': expanded }">
+        <li *ngFor="let contributor of expanded ? contributorsSorted : getTopContributors(); let i = index" class="flex items-center">
             <span class="mr-2">
                 <ng-container [ngSwitch]="i">
                     <span *ngSwitchCase="0"><i-lucide [img]="iconAward" class="icon-gold" /></span>
                     <span *ngSwitchCase="1"><i-lucide [img]="iconAward" class="icon-silver" /></span>
                     <span *ngSwitchCase="2"><i-lucide [img]="iconAward" class="icon-bronze" /></span>
-                    <span *ngSwitchDefault><i-lucide [img]="iconAward" /></span>
                 </ng-container>
             </span>
-            <span class="mb-1">{{ contributor.name }}</span>
+            <span>{{ contributor.name }}</span>
             <span class="badge badge-success ml-auto">{{ contributor.amount }}</span>
         </li>
     </ul>
-
-    <div class="absolute left-1 bottom-0">
-        <app-more-contributors-popover [contributors]="getRestOfContributors()" />
-    </div>
 </section>
