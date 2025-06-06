@@ -14,7 +14,7 @@
         Top Contributors
         <app-mouseover-info class="-ml-3" />
     </h2>
-    <ul class="space-y-2 text-sm" [ngClass]="{ 'text-xs': expanded }">
+    <ul class="space-y-2 text-sm">
         <li *ngFor="let contributor of expanded ? contributorsSorted : getTopContributors(); let i = index" class="flex items-center">
             <span class="mr-2">
                 <ng-container [ngSwitch]="i">

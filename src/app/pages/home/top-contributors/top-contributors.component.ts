@@ -3,7 +3,8 @@ import { CommonModule } from "@angular/common";
 
 import { LucideAngularModule, AwardIcon, Maximize2Icon, Minimize2Icon } from "lucide-angular";
 
-import { CONTRIBUTORS } from "../../../../assets/data/contributors";
+import contributorsData from "../../../../assets/data/contributors/contributors.json";
+
 import type { Contributor } from "../../../interfaces/contributor.interface";
 
 import { MouseoverInfoComponent } from "./mouseover-info/mouseover-info.component";
@@ -16,7 +17,7 @@ import { MouseoverInfoComponent } from "./mouseover-info/mouseover-info.componen
     styleUrls: ["./top-contributors.component.css"],
 })
 export class TopContributorsComponent {
-    contributors: Contributor[] = CONTRIBUTORS;
+    contributors: Contributor[] = contributorsData;
     readonly iconAward = AwardIcon;
     readonly iconMaximize = Maximize2Icon;
     readonly iconMinimize = Minimize2Icon;

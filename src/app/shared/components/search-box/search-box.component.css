@@ -1,0 +1,7 @@
+.input-ghost {
+  border: none !important;
+  box-shadow: none;
+}
+.input-ghost:focus {
+  outline: none;
+}

@@ -1,0 +1,37 @@
+<div class="flex items-center mb-2">
+    <div class="flex-1">
+        <app-search-box (search)="searchTerm = $event" />
+    </div>
+</div>
+<div class="overflow-x-auto mx-auto" style="max-width: 50vw">
+    <table class="table table-xs w-full">
+        <thead>
+            <tr>
+                <th *ngFor="let col of columns" [ngClass]="col.class" [style.width]="col.width || null">
+                    {{ col.label }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of filteredData" class="cursor-pointer hover:bg-base-200 transition-colors" (click)="rowClick ? rowClick(row) : null">
+                <td *ngFor="let col of columns" [ngClass]="col.class" [style.width]="col.width || null">
+                    <ng-container [ngSwitch]="col.type">
+                        <ng-container *ngSwitchCase="'image'">
+                            <div class="avatar" *ngIf="row[col.key]">
+                                <div class="mask mask-squircle w-6 h-6">
+                                    <img [src]="row[col.key]" [alt]="row['name'] || col.label" />
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngSwitchCase="'array'">
+                            <span class="text-xs">{{ isArray(row[col.key]) ? row[col.key].join(", ") : row[col.key] }}</span>
+                        </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            <span class="text-xs">{{ row[col.key] }}</span>
+                        </ng-container>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
