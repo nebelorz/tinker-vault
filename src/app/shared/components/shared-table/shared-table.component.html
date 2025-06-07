@@ -3,6 +3,7 @@
         <app-search-box (search)="searchTerm = $event" />
     </div>
 </div>
+
 <div class="overflow-x-auto mx-auto" style="max-width: 50vw">
     <table class="table table-xs w-full">
         <thead>
@@ -13,21 +14,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of filteredData" class="cursor-pointer hover:bg-base-200 transition-colors" (click)="rowClick ? rowClick(row) : null">
+            <tr *ngFor="let row of filteredData" class="cursor-pointer hover:bg-base-200 transition-colors" (click)="rowClicked.emit(row)">
                 <td *ngFor="let col of columns" [ngClass]="col.class" [style.width]="col.width || null">
                     <ng-container [ngSwitch]="col.type">
                         <ng-container *ngSwitchCase="'image'">
-                            <div class="avatar" *ngIf="row[col.key]">
+                            <div class="avatar" *ngIf="$any(row)[col.key]">
                                 <div class="mask mask-squircle w-6 h-6">
-                                    <img [src]="row[col.key]" [alt]="row['name'] || col.label" />
+                                    <img [src]="$any(row)[col.key]" [alt]="$any(row)['name'] || col.label" />
                                 </div>
                             </div>
                         </ng-container>
+
                         <ng-container *ngSwitchCase="'array'">
-                            <span class="text-xs">{{ isArray(row[col.key]) ? row[col.key].join(", ") : row[col.key] }}</span>
+                            <span class="text-xs">{{ isArray($any(row)[col.key]) ? $any(row)[col.key].join(", ") : $any(row)[col.key] }}</span>
                         </ng-container>
+
                         <ng-container *ngSwitchDefault>
-                            <span class="text-xs">{{ row[col.key] }}</span>
+                            <span class="text-xs">{{ $any(row)[col.key] }}</span>
                         </ng-container>
                     </ng-container>
                 </td>

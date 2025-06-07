@@ -1,3 +1,12 @@
-<div class="overflow-x-auto mx-auto" style="max-width: 50vw">
-    <app-shared-table [columns]="npcColumns" [data]="npcs" [rowClick]="onRowClick.bind(this)" />
+<div class="flex flex-row gap-8">
+    <div class="flex-1">
+        <div class="npcs-table-container">
+            <app-shared-table [columns]="npcColumns" [data]="npcs" (rowClicked)="onRowClick($event)" [selectedRow]="selectedNpc" />
+        </div>
+    </div>
+    <div class="w-full md:w-96">
+        <ng-container *ngIf="selectedNpc">
+            <app-detail-card [data]="selectedNpcDetails || null" />
+        </ng-container>
+    </div>
 </div>

@@ -1,5 +1,6 @@
 [
     {
+        "id": "guide",
         "name": "Guide",
         "description": "Provides first quests + info on all the items",
         "role": ["Helper"],
@@ -8,6 +9,7 @@
         "image": "assets/images/npcs/guide.webp"
     },
     {
+        "id": "bard",
         "name": "Bard",
         "description": "Provides debuff protection to access the desert",
         "role": ["Buffs"],

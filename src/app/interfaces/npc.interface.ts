@@ -1,4 +1,5 @@
 export interface Npc {
+    id: string;
     name: string;
     description: string;
     role: string[];

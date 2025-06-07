@@ -1,0 +1,10 @@
+<div class="card bg-base-200 shadow-lg w-full">
+    <div class="card-body p-4">
+        
+        <ng-container *ngIf="data">
+            <app-section-how-to-obtain [text]="data.howToObtain" />
+        </ng-container>
+
+        <app-section-collaborate />
+    </div>
+</div>
