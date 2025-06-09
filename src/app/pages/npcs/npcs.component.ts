@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import type { Npc } from "../../interfaces/npc.interface";
 import type { TableColumn } from "../../interfaces/shared-table-column.interface";
@@ -27,15 +28,24 @@ export class NpcsComponent implements OnInit {
         { key: "role", label: "Role", type: "array" },
     ];
 
-    constructor(private npcDataService: NpcService) {}
+    constructor(private npcDataService: NpcService, private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
         this.npcDataService.getAll().subscribe((data) => {
             this.npcs = data;
+
+            const npcId = this.route.snapshot.paramMap.get("id");
+            if (npcId) {
+                const found = this.npcs.find((npc) => npc.id === npcId);
+                if (found) {
+                    this.selectedNpc = found;
+                }
+            }
         });
     }
 
     onRowClicked(row: Npc): void {
         this.selectedNpc = row;
+        this.router.navigate(["/npc", row.id]);
     }
 }

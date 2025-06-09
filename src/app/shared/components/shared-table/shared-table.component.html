@@ -14,7 +14,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of filteredData" class="cursor-pointer hover:bg-base-200 transition-colors" (click)="rowClicked.emit(row)">
+            <tr
+                *ngFor="let row of filteredData"
+                class="cursor-pointer hover:bg-base-200 transition-colors"
+                [class.bg-base-300]="row === selectedRow"
+                (click)="rowClicked.emit(row)">
                 <td *ngFor="let col of columns" [ngClass]="col.class" [style.width]="col.width || null">
                     <ng-container [ngSwitch]="col.type">
                         <ng-container *ngSwitchCase="'image'">
