@@ -4,6 +4,15 @@ export interface Npc {
     description: string;
     role: string[];
     biome: string[];
-    unlocks: string[];
     image: string;
+    details: {
+        unlocks: string[];
+        howToObtain: string;
+        trades: {
+            isMerchant: boolean;
+            offer: string[];
+        };
+        homeRequirements: string[];
+        notes: string;
+    };
 }

@@ -1,12 +1,12 @@
 <div class="flex flex-row gap-8">
     <div class="flex-1">
         <div class="npcs-table-container">
-            <app-shared-table [columns]="npcColumns" [data]="npcs" (rowClicked)="onRowClick($event)" [selectedRow]="selectedNpc" />
+            <app-shared-table [columns]="npcColumns" [data]="npcs" (rowClicked)="onRowClicked($event)" [selectedRow]="selectedNpc" />
         </div>
     </div>
     <div class="w-full md:w-96">
         <ng-container *ngIf="selectedNpc">
-            <app-detail-card [data]="selectedNpcDetails || null" />
+            <app-detail-card [data]="selectedNpc || null" />
         </ng-container>
     </div>
 </div>

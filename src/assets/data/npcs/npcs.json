@@ -1,20 +1,20 @@
 [
     {
-        "id": "guide",
-        "name": "Guide",
-        "description": "Provides first quests + info on all the items",
-        "role": ["Helper"],
-        "biome": ["Beach"],
-        "unlocks": [],
-        "image": "assets/images/npcs/guide.webp"
-    },
-    {
         "id": "bard",
         "name": "Bard",
-        "description": "Provides debuff protection to access the desert",
-        "role": ["Buffs"],
+        "description": "Provides debuff protection",
         "biome": ["Forest"],
-        "unlocks": ["Access to Desert biome"],
-        "image": "assets/images/npcs/bard.webp"
+        "role": ["Helper"],
+        "image": "assets/images/npcs/bard.webp",
+        "details": {
+            "howToObtain": "Appears randomly in the forest biome",
+            "unlocks": ["Access to Desert biome"],
+            "trades": {
+                "isMerchant": false,
+                "offer": []
+            },
+            "homeRequirements": [],
+            "notes": "His buff is required to access the desert"
+        }
     }
 ]

@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { NgIf } from "@angular/common";
 
-import { NpcDetails } from "../../../interfaces/npc-details.interface";
+import { Npc } from "../../../interfaces/npc.interface";
 
 import { SectionHowToObtainComponent } from "./section-how-to-obtain/section-how-to-obtain.component";
 import { SectionCollaborateComponent } from "./section-collaborate/section-collaborate.component";
@@ -14,5 +14,5 @@ import { SectionCollaborateComponent } from "./section-collaborate/section-colla
     styleUrls: ["./detail-card.component.css"],
 })
 export class DetailCardComponent {
-    @Input() data: NpcDetails | null = null;
+    @Input() data: Npc | null = null;
 }
