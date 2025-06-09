@@ -1,10 +1,9 @@
 <section class="bg-base-100 rounded-lg shadow p-4 text-xs flex flex-col gap-2">
     <h3 class="text-base font-bold flex items-center gap-2 mb-1">
         <span>Trades</span>
-        <span *ngIf="trades?.isMerchant" class="text-primary text-[10px] font-normal">(Merchant)</span>
     </h3>
 
-    <div *ngIf="trades?.offer?.length; else noOffers">
+    <div *ngIf="trades?.isMerchant && trades?.offer?.length; else noOffersOrNotMerchant">
         <table class="table-auto w-full text-left border-collapse border border-base-300 text-xs">
             <thead>
                 <tr class="bg-base-200">
@@ -15,8 +14,8 @@
                 <tr *ngFor="let item of trades.offer" class="hover:bg-base-100/50 cursor-pointer">
                     <td class="border border-base-300 px-3 py-2 font-medium text-base-content">
                         <a [routerLink]="['/items', item.id]" class="flex items-center gap-2 text-primary hover:underline no-underline">
-                            <img [src]="'../../assets/images/items/' + item.id + '.webp'" [alt]="item.name" class="w-6 h-6 object-contain" loading="lazy" />
-                            <span>{{ item.name }}</span>
+                            <img [src]="getItemImageSrc(item)" [alt]="getItemName(item.id)" class="w-6 h-6 object-contain" loading="lazy" />
+                            <span>{{ getItemName(item.id) }}</span>
                         </a>
                     </td>
                 </tr>
@@ -24,7 +23,8 @@
         </table>
     </div>
 
-    <ng-template #noOffers>
-        <p class="opacity-50 italic">No info about this.</p>
+    <ng-template #noOffersOrNotMerchant>
+        <p class="opacity-50 italic" *ngIf="trades?.isMerchant">No info about this.</p>
+        <p class="opacity-50 italic" *ngIf="!trades?.isMerchant">This NPC does not sell anything.</p>
     </ng-template>
 </section>

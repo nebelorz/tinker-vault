@@ -5,6 +5,8 @@ import type { TableColumn } from "../../../interfaces/shared-table-column.interf
 
 import { SearchBoxComponent } from "../search-box/search-box.component";
 
+import { getImagePath } from "../../utils/image-path.util";
+
 @Component({
     selector: "app-shared-table",
     standalone: true,
@@ -12,7 +14,7 @@ import { SearchBoxComponent } from "../search-box/search-box.component";
     templateUrl: "./shared-table.component.html",
     styleUrl: "./shared-table.component.css",
 })
-export class SharedTableComponent<T = unknown> {
+export class SharedTableComponent<T = any> {
     @Input() columns: TableColumn[] = [];
     @Input() data: T[] = [];
     @Input() selectedRow: T | null = null;
@@ -38,5 +40,12 @@ export class SharedTableComponent<T = unknown> {
 
     isArray(value: unknown): value is unknown[] {
         return Array.isArray(value);
+    }
+
+    getImageSrc(row: T, colKey: string): string {
+        const category = (row as any).category || "default";
+        const id = (row as any).id;
+        if (!id) return "";
+        return getImagePath(category, id);
     }
 }

@@ -1,7 +1,6 @@
 export interface NpcTradeOffer {
     id: string;
-    name: string;
-    path: string;
+    category: string;
 }
 
 export interface NpcTrades {
@@ -12,10 +11,10 @@ export interface NpcTrades {
 export interface Npc {
     id: string;
     name: string;
+    category: string;
     description: string;
     biome: string[];
     role: string[];
-    image: string;
     details: {
         howToObtain: string;
         unlocks: string[];

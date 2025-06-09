@@ -17,5 +17,5 @@ import { SectionHomeRequirements } from "./section-home-requirements/section-hom
     styleUrls: ["./detail-card.component.css"],
 })
 export class DetailCardComponent {
-    @Input() data: Npc | null = null;
+    @Input({ required: true }) data!: Npc;
 }

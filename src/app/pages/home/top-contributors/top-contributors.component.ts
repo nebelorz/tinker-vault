@@ -1,9 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
 import { LucideAngularModule, AwardIcon, Maximize2Icon, Minimize2Icon } from "lucide-angular";
 
-import { TopContributorsService } from "./top-contributors.service";
+import { extractContributorsData, sortContributorsByAmount, getTopContributors } from "../../../shared/utils/extract-contributors-data.util";
 
 import type { Contributor } from "../../../interfaces/contributor.interface";
 
@@ -16,7 +15,7 @@ import { MouseoverInfoComponent } from "./mouseover-info/mouseover-info.componen
     templateUrl: "./top-contributors.component.html",
     styleUrls: ["./top-contributors.component.css"],
 })
-export class TopContributorsComponent {
+export class TopContributorsComponent implements OnInit {
     contributors: Contributor[] = [];
     readonly iconAward = AwardIcon;
     readonly iconMaximize = Maximize2Icon;
@@ -24,14 +23,12 @@ export class TopContributorsComponent {
 
     expanded = false;
 
-    constructor(private contributorsService: TopContributorsService) {}
-
-    async ngOnInit() {
-        this.contributors = await this.contributorsService.getContributors();
+    ngOnInit(): void {
+        this.contributors = extractContributorsData();
     }
 
     getTopContributors(amountOfContributors: number = 3): Contributor[] {
-        return [...this.contributors].sort((a, b) => b.amount - a.amount).slice(0, amountOfContributors);
+        return getTopContributors(this.contributors, amountOfContributors);
     }
 
     toggleContributors(event: Event) {
@@ -40,6 +37,6 @@ export class TopContributorsComponent {
     }
 
     get contributorsSorted(): Contributor[] {
-        return [...this.contributors].sort((a, b) => b.amount - a.amount);
+        return sortContributorsByAmount(this.contributors);
     }
 }

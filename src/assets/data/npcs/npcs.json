@@ -1,11 +1,11 @@
 [
     {
         "id": "npc_bard",
+        "category": "npcs",
         "name": "Bard",
         "description": "Provides debuff protection",
         "biome": ["Forest"],
         "role": ["Helper"],
-        "image": "assets/images/npcs/bard.webp",
         "details": {
             "howToObtain": "Appears randomly in the forest biome",
             "unlocks": ["Access to Desert biome"],
@@ -19,11 +19,11 @@
     },
     {
         "id": "npc_guide",
+        "category": "npcs",
         "name": "Guide",
         "description": "Provides information about all the items",
         "biome": ["Beach"],
         "role": ["Helper"],
-        "image": "assets/images/npcs/guide.webp",
         "details": {
             "howToObtain": "Appears belong the shipwreck",
             "unlocks": [],
@@ -33,6 +33,75 @@
             },
             "homeRequirements": [],
             "notes": "Provides first quests"
+        }
+    },
+    {
+        "id": "npc_blacksmith",
+        "category": "npcs",
+        "name": "Blacksmith",
+        "description": "Reforge items. Sells coal & basic tools",
+        "biome": ["Desert"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears randomly in the desert",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    {
+                        "id": "coal",
+                        "category": "items"
+                    },
+                    {
+                        "id": "iron_axe",
+                        "category": "items"
+                    },
+                    {
+                        "id": "iron_pickaxe",
+                        "category": "items"
+                    }
+                ]
+            },
+            "homeRequirements": ["Anvil", "Furnace"],
+            "notes": "Offers item reforging"
+        }
+    },
+    {
+        "id": "npc_merchant",
+        "category": "npcs",
+        "name": "Merchant",
+        "description": "Sells a variety of items useful for basic progression",
+        "biome": ["Forest?"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears randomly in the forest (Maybe at any biome?)",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "portable_teleporter", "category": "items" },
+                    { "id": "bread", "category": "items" },
+                    { "id": "hp_potion", "category": "items" },
+                    { "id": "mp_potion", "category": "items" },
+                    { "id": "teleport_potion", "category": "items" },
+                    { "id": "hot_drink", "category": "items" },
+                    { "id": "portable_candle", "category": "items" },
+                    { "id": "leather_boots", "category": "items" },
+                    { "id": "talisman", "category": "items" },
+                    { "id": "frog_leg", "category": "items" },
+                    { "id": "rusty_helmet", "category": "items" },
+                    { "id": "rusty_armor", "category": "items" },
+                    { "id": "rusty_boots", "category": "items" },
+                    { "id": "flowerpot", "category": "items" },
+                    { "id": "wooden_torch", "category": "items" },
+                    { "id": "wooden_arrow", "category": "items" },
+                    { "id": "fire_arrow", "category": "items" },
+                    { "id": "frozen_arrow", "category": "items" },
+                    { "id": "sharp_arrow", "category": "items" }
+                ]
+            },
+            "homeRequirements": ["Chest"],
+            "notes": ""
         }
     }
 ]

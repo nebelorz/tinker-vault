@@ -22,15 +22,17 @@
                 <td *ngFor="let col of columns" [ngClass]="col.class" [style.width]="col.width || null">
                     <ng-container [ngSwitch]="col.type">
                         <ng-container *ngSwitchCase="'image'">
-                            <div class="avatar" *ngIf="$any(row)[col.key]">
+                            <div class="avatar">
                                 <div class="mask mask-squircle w-6 h-6">
-                                    <img [src]="$any(row)[col.key]" [alt]="$any(row)['name'] || col.label" />
+                                    <img [src]="getImageSrc(row, col.key)" [alt]="$any(row)['name'] || col.label" />
                                 </div>
                             </div>
                         </ng-container>
 
                         <ng-container *ngSwitchCase="'array'">
-                            <span class="text-xs">{{ isArray($any(row)[col.key]) ? $any(row)[col.key].join(", ") : $any(row)[col.key] }}</span>
+                            <span class="text-xs">
+                                {{ isArray($any(row)[col.key]) ? $any(row)[col.key].join(", ") : $any(row)[col.key] }}
+                            </span>
                         </ng-container>
 
                         <ng-container *ngSwitchDefault>

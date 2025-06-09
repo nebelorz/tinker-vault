@@ -8,7 +8,7 @@ export const routes: Routes = [
     { path: "items", component: ItemsComponent },
     { path: "npcs", component: NpcsComponent },
     {
-        path: "npc/:id",
+        path: "npcs/:id",
         loadComponent: () => import("./pages/npcs/npcs.component").then((m) => m.NpcsComponent),
     },
     { path: "**", redirectTo: "" }, // Fallback to home for any unknown routes

@@ -5,9 +5,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import type { Npc } from "../../interfaces/npc.interface";
 import type { TableColumn } from "../../interfaces/shared-table-column.interface";
 
-import { NpcService } from "./npcs.service";
 import { SharedTableComponent } from "../../shared/components/shared-table/shared-table.component";
 import { DetailCardComponent } from "../../shared/components/detail-card/detail-card.component";
+import { getAllNpcs } from "../../shared/utils/extract-npc-data.util";
 
 @Component({
     selector: "app-npcs",
@@ -28,24 +28,19 @@ export class NpcsComponent implements OnInit {
         { key: "role", label: "Role", type: "array" },
     ];
 
-    constructor(private npcDataService: NpcService, private router: Router, private route: ActivatedRoute) {}
+    constructor(private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
-        this.npcDataService.getAll().subscribe((data) => {
-            this.npcs = data;
+        this.npcs = getAllNpcs();
 
-            const npcId = this.route.snapshot.paramMap.get("id");
-            if (npcId) {
-                const found = this.npcs.find((npc) => npc.id === npcId);
-                if (found) {
-                    this.selectedNpc = found;
-                }
-            }
-        });
+        const npcId = this.route.snapshot.paramMap.get("id");
+        if (npcId) {
+            this.selectedNpc = this.npcs.find((npc) => npc.id === npcId) ?? null;
+        }
     }
 
     onRowClicked(row: Npc): void {
         this.selectedNpc = row;
-        this.router.navigate(["/npc", row.id]);
+        this.router.navigate(["/npcs", row.id]);
     }
 }
