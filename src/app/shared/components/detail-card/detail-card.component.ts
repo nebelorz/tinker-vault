@@ -5,11 +5,13 @@ import { Npc } from "../../../interfaces/npc.interface";
 
 import { SectionHowToObtainComponent } from "./section-how-to-obtain/section-how-to-obtain.component";
 import { SectionCollaborateComponent } from "./section-collaborate/section-collaborate.component";
+import { SectionUnlocksComponent } from "./section-unlocks/section-unlocks.component";
+import { SectionTradeComponent } from "./section-trade/section-trade.component";
 
 @Component({
     selector: "app-detail-card",
     standalone: true,
-    imports: [NgIf, SectionHowToObtainComponent, SectionCollaborateComponent],
+    imports: [NgIf, SectionHowToObtainComponent, SectionCollaborateComponent, SectionUnlocksComponent, SectionTradeComponent],
     templateUrl: "./detail-card.component.html",
     styleUrls: ["./detail-card.component.css"],
 })

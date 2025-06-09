@@ -1,6 +1,6 @@
 [
     {
-        "id": "bard",
+        "id": "npc_bard",
         "name": "Bard",
         "description": "Provides debuff protection",
         "biome": ["Forest"],
@@ -15,6 +15,24 @@
             },
             "homeRequirements": [],
             "notes": "His buff is required to access the desert"
+        }
+    },
+    {
+        "id": "npc_guide",
+        "name": "Guide",
+        "description": "Provides information about all the items",
+        "biome": ["Beach"],
+        "role": ["Helper"],
+        "image": "assets/images/npcs/guide.webp",
+        "details": {
+            "howToObtain": "Appears belong the shipwreck",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": false,
+                "offer": []
+            },
+            "homeRequirements": [],
+            "notes": "Provides first quests"
         }
     }
 ]

@@ -2,6 +2,8 @@
     <div class="card-body p-4">
         <ng-container *ngIf="data">
             <app-section-how-to-obtain [text]="data.details.howToObtain" />
+            <app-section-unlocks [unlocks]="data.details.unlocks" />
+            <app-section-trade [trades]="data.details.trades" />
         </ng-container>
 
         <app-section-collaborate />
