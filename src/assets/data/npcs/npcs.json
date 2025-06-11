@@ -25,7 +25,7 @@
         "biome": ["Beach"],
         "role": ["Helper"],
         "details": {
-            "howToObtain": "Appears belong the shipwreck",
+            "howToObtain": "Appears near the shipwreck",
             "unlocks": [],
             "trades": {
                 "isMerchant": false,
@@ -68,7 +68,7 @@
         "biome": ["Forest"],
         "role": ["Trader"],
         "details": {
-            "howToObtain": "Appears randomly in the forest (maybe at any biome?)",
+            "howToObtain": "Appears randomly in the forest biome",
             "unlocks": [],
             "trades": {
                 "isMerchant": true,
@@ -95,6 +95,312 @@
                 ]
             },
             "homeRequirements": [{ "id": "wooden_chest", "category": "items" }],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_carpenter",
+        "category": "npcs",
+        "name": "Carpenter",
+        "description": "Repairs ship",
+        "biome": ["Caves"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears in the caves after defeating the Mineral Spider",
+            "unlocks": ["Access to the ship"],
+            "trades": {
+                "isMerchant": false,
+                "offer": []
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_cartographer",
+        "category": "npcs",
+        "name": "Cartographer",
+        "description": "Provides maps and information about the current island",
+        "biome": ["Ship"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears automatically inside the ship",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "map", "category": "items" },
+                    { "id": "compass", "category": "items" },
+                    { "id": "life_ring", "category": "items" }
+                ]
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_chef",
+        "category": "npcs",
+        "name": "Chef",
+        "description": "Specializes in cooking-related items and quests",
+        "biome": ["Tundra"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Found trapped in ice within the Tundra biome. A chef's hat is visible atop the ice.",
+            "unlocks": ["Cooking", "Cooking Pot", "Cooking Recipes"],
+            "trades": {
+                "isMerchant": true,
+                "offer": []
+            },
+            "homeRequirements": [{ "id": "cooking_pot", "category": "items" }],
+            "notes": "Rescuing The Chef unlocks various cooking recipes and the Cooking Pot, essential for preparing meals that provide buffs."
+        }
+    },
+    {
+        "id": "npc_farmer",
+        "category": "npcs",
+        "name": "Farmer",
+        "description": "Specializes in farming-related items",
+        "biome": ["Any?"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Have a stone hoe in your inventory. +3 NPCs on the settlement.",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": []
+            },
+            "homeRequirements": [],
+            "notes": "The farmer offers seeds."
+        }
+    },
+    {
+        "id": "npc_electrician",
+        "category": "npcs",
+        "name": "Electrician",
+        "description": "Sells items related to the electric and automation design",
+        "biome": [],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "",
+            "unlocks": ["Possibility to automate certain things, use levers and actions on floor steps etc. Similar to redstone in Minecraft"],
+            "trades": {
+                "isMerchant": true,
+                "offer": []
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_miner",
+        "category": "npcs",
+        "name": "Miner",
+        "description": "The miner sells explosives, low tier ores and minecart tracks",
+        "biome": ["Cave"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Entering the cave",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "mini_bomb", "category": "items" },
+                    { "id": "bomb", "category": "items" },
+                    { "id": "dynamite", "category": "items" },
+                    { "id": "copper_ore", "category": "items" },
+                    { "id": "iron_ore", "category": "items" },
+                    { "id": "minecart_track", "category": "items" }
+                ]
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_nurse",
+        "category": "npcs",
+        "name": "Nurse",
+        "description": "Sells potions and heals the player on speak",
+        "biome": ["Snow Forest"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears randomly in the snow forest biome",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "hp_potion", "category": "items" },
+                    { "id": "mp_potion", "category": "items" }
+                ]
+            },
+            "homeRequirements": [{ "id": "fir_shelf", "category": "items" }],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_skeleton",
+        "category": "npcs",
+        "name": "Skeleton",
+        "description": "Sells various items and is a crafting station",
+        "biome": ["Pumpkin Island"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "rare_candy", "category": "items" },
+                    { "id": "candy_apple", "category": "items" },
+                    { "id": "chocolate_bar", "category": "items" },
+                    { "id": "pumpkin_lollipop", "category": "items" }
+                ]
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_stylist",
+        "category": "npcs",
+        "name": "Stylist",
+        "description": "Sells cosmetic items",
+        "biome": ["Any?"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Equip items on all vanity slots",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": []
+            },
+            "homeRequirements": [{ "id": "mannequin", "category": "items" }],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_summoner",
+        "category": "npcs",
+        "name": "Summoner",
+        "description": "Sells boss summon items",
+        "biome": ["Ghostlands"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears in the village at Ghostlands",
+            "unlocks": ["Possibility to buy items to re-summon bosses"],
+            "trades": {
+                "isMerchant": true,
+                "offer": [{ "id": "eye_of_truth", "category": "items" }]
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_travelling_merchant",
+        "category": "npcs",
+        "name": "Travelling Merchant",
+        "description": "Appears randomly on the map and sells random items",
+        "biome": ["Any"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Cannot be obtained.",
+            "unlocks": [],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "bloody_fang", "category": "items" },
+                    { "id": "bone_bow", "category": "items" },
+                    { "id": "bone_sword", "category": "items" },
+                    { "id": "bread", "category": "items" },
+                    { "id": "cactus_sword", "category": "items" },
+                    { "id": "copper_bow", "category": "items" },
+                    { "id": "copper_spear", "category": "items" },
+                    { "id": "copper_sword", "category": "items" },
+                    { "id": "cutlass", "category": "items" },
+                    { "id": "fire_arrow", "category": "items" },
+                    { "id": "fireball_spell", "category": "items" },
+                    { "id": "frog_leg", "category": "items" },
+                    { "id": "frozen_arrow", "category": "items" },
+                    { "id": "ghost_arrow", "category": "items" },
+                    { "id": "healing_staff", "category": "items" },
+                    { "id": "heavenly_amulet", "category": "items" },
+                    { "id": "hp_potion", "category": "items" },
+                    { "id": "ice_pick", "category": "items" },
+                    { "id": "iron_bow", "category": "items" },
+                    { "id": "iron_sword", "category": "items" },
+                    { "id": "iron_chakram", "category": "items" },
+                    { "id": "iron_spear", "category": "items" },
+                    { "id": "iron_staff", "category": "items" },
+                    { "id": "leather_boots", "category": "items" },
+                    { "id": "magic_sword", "category": "items" },
+                    { "id": "minecart_track", "category": "items" },
+                    { "id": "mining_arrow", "category": "items" },
+                    { "id": "mp_potion", "category": "items" },
+                    { "id": "parrying_dagger", "category": "items" },
+                    { "id": "portable_candle", "category": "items" },
+                    { "id": "recall_scroll", "category": "items" },
+                    { "id": "rosary", "category": "items" },
+                    { "id": "sharp_arrow", "category": "items" },
+                    { "id": "slingshot", "category": "items" },
+                    { "id": "talisman", "category": "items" },
+                    { "id": "teleport_potion", "category": "items" },
+                    { "id": "trident", "category": "items" },
+                    { "id": "wooden_arrow", "category": "items" },
+                    { "id": "wood_staff", "category": "items" }
+                ]
+            },
+            "homeRequirements": [],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_witch",
+        "category": "npcs",
+        "name": "Witch",
+        "description": "Sells potions and potion recipes",
+        "biome": ["Mushroom"],
+        "role": ["Trader"],
+        "details": {
+            "howToObtain": "Appears in the mushroom biome",
+            "unlocks": ["Potion recipes"],
+            "trades": {
+                "isMerchant": true,
+                "offer": [
+                    { "id": "hp_potion", "category": "items" },
+                    { "id": "mp_potion", "category": "items" },
+                    { "id": "recipe_swarm_potion", "category": "items" },
+                    { "id": "recipe_peaceful_potion", "category": "items" },
+                    { "id": "recipe_speed_potion", "category": "items" },
+                    { "id": "recipe_attack_potion", "category": "items" },
+                    { "id": "recipe_melee_potion", "category": "items" },
+                    { "id": "recipe_ranged_potion", "category": "items" },
+                    { "id": "recipe_magic_potion", "category": "items" },
+                    { "id": "recipe_unlimited_hp_potion", "category": "items" },
+                    { "id": "recipe_unlimited_mp_potion", "category": "items" },
+                    { "id": "empty_bottle", "category": "items" }
+                ]
+            },
+            "homeRequirements": [{ "id": "cauldron", "category": "items" }],
+            "notes": ""
+        }
+    },
+    {
+        "id": "npc_ghost",
+        "category": "npcs",
+        "name": "Ghost",
+        "description": "Riddles!",
+        "biome": ["Ghostlands"],
+        "role": ["Quest Giver"],
+        "details": {
+            "howToObtain": "Appears in the ghostlands biome.",
+            "unlocks": ["Access to crypts", "Guide by LittleVikingGirl", "https://steamcommunity.com/sharedfiles/filedetails/?id=3489087899"],
+            "trades": {
+                "isMerchant": false,
+                "offer": []
+            },
+            "homeRequirements": [],
             "notes": ""
         }
     }
