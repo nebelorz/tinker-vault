@@ -28,7 +28,7 @@ export class ModalSubmitInfoComponent {
 
         const subject = encodeURIComponent(this.title);
         const body = encodeURIComponent(this.description);
-        const mailto = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
+        const mailto = `mailto:to-do@email.com?subject=${subject}&body=${body}`;
         window.location.href = mailto;
 
         this.close();

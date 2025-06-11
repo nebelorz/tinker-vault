@@ -7,7 +7,7 @@ import type { TableColumn } from "../../interfaces/shared-table-column.interface
 import { SharedTableComponent } from "../../shared/components/shared-table/shared-table.component";
 import { DetailsCardComponent } from "./details-card/details-card.component";
 import { TradesCardComponent } from "./trades-card/trades-card.component";
-import { getAllNpcs } from "../../shared/utils/extract-npc-data.util";
+import { utilGetAllNpcs } from "../../shared/utils/extract-npc-data.util";
 
 @Component({
     selector: "app-npcs",
@@ -36,7 +36,7 @@ export class NpcsComponent implements OnInit {
     constructor(private router: Router, private route: ActivatedRoute) {}
 
     ngOnInit(): void {
-        this.npcs.set(getAllNpcs());
+        this.npcs.set(utilGetAllNpcs());
 
         // Get ID from route parameters
         const id = this.route.snapshot.paramMap.get("id");

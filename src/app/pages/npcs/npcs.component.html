@@ -1,4 +1,4 @@
-<div class="flex flex-row gap-8">
+<div class="flex flex-col lg:flex-row gap-4 lg:gap-8">
     <div class="flex-1">
         <div class="npcs-table-container">
             <app-shared-table
@@ -9,15 +9,19 @@
                 [selectedId]="selectedId()" />
         </div>
     </div>
-    <div class="w-full md:w-96">
-        @if (selectedNpc(); as npc) {
-        <app-details-card [data]="npc" />
-        }
-    </div>
+    @if (selectedNpc(); as npc) {
+    <div class="lg:w-auto">
+        <div class="flex flex-col sm:flex-row gap-6 flex-wrap">
+            <!-- NPC Details-->
+            <div class="w-full sm:w-[calc(50%-12px)] md:w-72 lg:w-80 xl:w-96 min-w-[280px] mb-4">
+                <app-details-card [data]="npc" />
+            </div>
 
-    <div class="w-full md:w-96">
-        @if (selectedNpc(); as npc) {
-        <app-trades-card [trades]="npc.details.trades" />
-        }
+            <!-- NPC Trades-->
+            <div class="w-full sm:w-[calc(50%-12px)] md:w-72 lg:w-80 xl:w-96 min-w-[280px] mb-4">
+                <app-trades-card [trades]="npc.details.trades" />
+            </div>
+        </div>
     </div>
+    }
 </div>
