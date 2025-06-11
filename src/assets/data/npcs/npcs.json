@@ -31,7 +31,7 @@
                 "isMerchant": false,
                 "offer": []
             },
-            "homeRequirements": [],
+            "homeRequirements": [{ "id": "working_table", "category": "items" }],
             "notes": "Provides first quests"
         }
     },
@@ -48,21 +48,15 @@
             "trades": {
                 "isMerchant": true,
                 "offer": [
-                    {
-                        "id": "coal",
-                        "category": "items"
-                    },
-                    {
-                        "id": "iron_axe",
-                        "category": "items"
-                    },
-                    {
-                        "id": "iron_pickaxe",
-                        "category": "items"
-                    }
+                    { "id": "coal", "category": "items" },
+                    { "id": "iron_axe", "category": "items" },
+                    { "id": "iron_pickaxe", "category": "items" }
                 ]
             },
-            "homeRequirements": ["Anvil", "Furnace"],
+            "homeRequirements": [
+                { "id": "anvil", "category": "items" },
+                { "id": "furnace", "category": "items" }
+            ],
             "notes": "Offers item reforging"
         }
     },
@@ -71,36 +65,36 @@
         "category": "npcs",
         "name": "Merchant",
         "description": "Sells a variety of items useful for basic progression",
-        "biome": ["Forest?"],
+        "biome": ["Forest"],
         "role": ["Trader"],
         "details": {
-            "howToObtain": "Appears randomly in the forest (Maybe at any biome?)",
+            "howToObtain": "Appears randomly in the forest (maybe at any biome?)",
             "unlocks": [],
             "trades": {
                 "isMerchant": true,
                 "offer": [
-                    { "id": "portable_teleporter", "category": "items" },
                     { "id": "bread", "category": "items" },
-                    { "id": "hp_potion", "category": "items" },
-                    { "id": "mp_potion", "category": "items" },
-                    { "id": "teleport_potion", "category": "items" },
-                    { "id": "hot_drink", "category": "items" },
-                    { "id": "portable_candle", "category": "items" },
-                    { "id": "leather_boots", "category": "items" },
-                    { "id": "talisman", "category": "items" },
+                    { "id": "fire_arrow", "category": "items" },
+                    { "id": "flowerpot", "category": "items" },
                     { "id": "frog_leg", "category": "items" },
-                    { "id": "rusty_helmet", "category": "items" },
+                    { "id": "frozen_arrow", "category": "items" },
+                    { "id": "hot_drink", "category": "items" },
+                    { "id": "hp_potion", "category": "items" },
+                    { "id": "leather_boots", "category": "items" },
+                    { "id": "mp_potion", "category": "items" },
+                    { "id": "portable_candle", "category": "items" },
+                    { "id": "portable_teleporter", "category": "items" },
                     { "id": "rusty_armor", "category": "items" },
                     { "id": "rusty_boots", "category": "items" },
-                    { "id": "flowerpot", "category": "items" },
-                    { "id": "wooden_torch", "category": "items" },
+                    { "id": "rusty_helmet", "category": "items" },
+                    { "id": "sharp_arrow", "category": "items" },
+                    { "id": "talisman", "category": "items" },
+                    { "id": "teleport_potion", "category": "items" },
                     { "id": "wooden_arrow", "category": "items" },
-                    { "id": "fire_arrow", "category": "items" },
-                    { "id": "frozen_arrow", "category": "items" },
-                    { "id": "sharp_arrow", "category": "items" }
+                    { "id": "wooden_torch", "category": "items" }
                 ]
             },
-            "homeRequirements": ["Chest"],
+            "homeRequirements": [{ "id": "wooden_chest", "category": "items" }],
             "notes": ""
         }
     }

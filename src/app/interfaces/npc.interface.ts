@@ -3,9 +3,22 @@ export interface NpcTradeOffer {
     category: string;
 }
 
+export interface NpcHomeRequirement {
+    id: string;
+    category: string;
+}
+
 export interface NpcTrades {
     isMerchant: boolean;
     offer: NpcTradeOffer[];
+}
+
+export interface NpcDetails {
+    howToObtain: string;
+    unlocks: string[];
+    trades: NpcTrades;
+    homeRequirements: NpcHomeRequirement[];
+    notes: string;
 }
 
 export interface Npc {
@@ -15,11 +28,5 @@ export interface Npc {
     description: string;
     biome: string[];
     role: string[];
-    details: {
-        howToObtain: string;
-        unlocks: string[];
-        trades: NpcTrades;
-        homeRequirements: string[];
-        notes: string;
-    };
+    details: NpcDetails;
 }

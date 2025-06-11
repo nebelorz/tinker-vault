@@ -1,21 +1,37 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, ElementRef, ViewChild, input, model, signal, output } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 import { LucideAngularModule, SearchIcon } from "lucide-angular";
 
 @Component({
     selector: "app-search-box",
     standalone: true,
-    imports: [CommonModule, LucideAngularModule],
+    imports: [CommonModule, FormsModule, LucideAngularModule],
     templateUrl: "./search-box.component.html",
     styleUrl: "./search-box.component.css",
 })
 export class SearchBoxComponent {
-    readonly iconSearch = SearchIcon;
-    @Output() search = new EventEmitter<string>();
+    @ViewChild("searchInput") searchInput!: ElementRef<HTMLInputElement>;
 
-    onInput(event: Event) {
-        const value = (event.target as HTMLInputElement).value;
+    readonly iconSearch = SearchIcon;
+
+    placeholder = input<string>("Search…");
+
+    searchValue = model<string>("");
+
+    search = output<string>();
+
+    searchTerm = signal<string>("");
+
+    onSearchChange(value: string): void {
+        this.searchTerm.set(value);
         this.search.emit(value);
+    }
+
+    focus(): void {
+        if (this.searchInput) {
+            this.searchInput.nativeElement.focus();
+        }
     }
 }

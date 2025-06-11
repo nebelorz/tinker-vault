@@ -1,0 +1,33 @@
+<section class="bg-base-200 shadow-lg flex-1 min-w-[400px] p-4">
+    <section class="bg-base-100 rounded-lg shadow p-4 text-xs flex flex-col gap-2">
+        <div class="flex justify-between items-center mb-1">
+            <h3 class="text-base font-bold flex items-center gap-2 mb-1">
+                <span>Trades</span>
+            </h3>
+            @if (trades.isMerchant && trades.offer.length) {
+            <app-search-box placeholder="Search items..." (search)="onSearch($event)"></app-search-box>
+            }
+        </div>
+
+        @if (trades.isMerchant && trades.offer.length) { @if (filteredOffers().length) {
+        <table class="table-auto w-full text-left border-collapse border border-base-300 text-xs">
+            <tbody>
+                @for (item of filteredOffers(); track item.id) {
+                <tr class="hover:bg-base-200 cursor-pointer border border-base-300">
+                    <td class="border border-base-300 px-3 py-2 font-medium text-base-content">
+                        <a [routerLink]="['/items', item.id]" class="flex items-center gap-2 text-primary no-underline">
+                            <img [src]="getItemImageSrc(item)" [alt]="getItemName(item)" class="w-6 h-6 object-contain" loading="lazy" />
+                            <span>{{ getItemName(item) }}</span>
+                        </a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        } } @else { @if (trades.isMerchant) {
+        <p class="opacity-50 italic">No info about this.</p>
+        } @else {
+        <p class="opacity-50 italic">This NPC does not sell anything.</p>
+        } }
+    </section>
+</section>

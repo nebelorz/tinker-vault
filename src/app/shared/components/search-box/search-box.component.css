@@ -1,7 +1,10 @@
 .input-ghost {
-  border: none !important;
-  box-shadow: none;
+    border: none;
+    box-shadow: none;
+    transition: background-color 0.2s ease;
 }
+
 .input-ghost:focus {
-  outline: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.05);
 }

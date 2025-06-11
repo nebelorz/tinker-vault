@@ -1,6 +1,7 @@
 <section class="bg-base-200 w-full md:w-80 card shadow rounded-box p-6 relative">
     <!-- Expand/Minimize button -->
-    <div *ngIf="contributors.length > 3" class="absolute top-3 right-3">
+    @if (contributors.length > 3) {
+    <div class="absolute top-3 right-3">
         <button
             (click)="toggleContributors($event)"
             class="icon-button btn btn-xs btn-ghost p-0 min-h-0 h-6 w-6 flex items-center justify-center"
@@ -9,22 +10,27 @@
             <i-lucide [img]="expanded ? iconMinimize : iconMaximize" [size]="14" />
         </button>
     </div>
+    }
 
     <h2 class="card-title text-1xl font-bold mb-1">
         Top Contributors
         <app-mouseover-info class="-ml-3" />
     </h2>
     <ul class="space-y-2 text-sm">
-        <li *ngFor="let contributor of expanded ? contributorsSorted : getTopContributors(); let i = index" class="flex items-center">
+        @for (contributor of expanded ? contributorsSorted : getTopContributors(); track contributor.name; let i = $index) {
+        <li class="flex items-center">
             <span class="mr-2">
-                <ng-container [ngSwitch]="i">
-                    <span *ngSwitchCase="0"><i-lucide [img]="iconAward" class="icon-gold" /></span>
-                    <span *ngSwitchCase="1"><i-lucide [img]="iconAward" class="icon-silver" /></span>
-                    <span *ngSwitchCase="2"><i-lucide [img]="iconAward" class="icon-bronze" /></span>
-                </ng-container>
+                @switch (i) { @case (0) {
+                <i-lucide [img]="iconAward" class="icon-gold" />
+                } @case (1) {
+                <i-lucide [img]="iconAward" class="icon-silver" />
+                } @case (2) {
+                <i-lucide [img]="iconAward" class="icon-bronze" />
+                } }
             </span>
             <span>{{ contributor.name }}</span>
             <span class="badge badge-success ml-auto">{{ contributor.amount }}</span>
         </li>
+        }
     </ul>
 </section>

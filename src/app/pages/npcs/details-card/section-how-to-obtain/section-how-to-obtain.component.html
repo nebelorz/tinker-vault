@@ -3,11 +3,9 @@
         <span>How to obtain?</span>
     </h3>
 
-    <div *ngIf="text; else noInfo">
-        <p class="opacity-70 mb-1">{{ text }}</p>
-    </div>
-
-    <ng-template #noInfo>
-        <p class="opacity-50 italic">No info about this.</p>
-    </ng-template>
+    @if (text) {
+    <p class="opacity-70 mb-1">{{ text }}</p>
+    } @else {
+    <p class="opacity-50 italic">No info about this.</p>
+    }
 </section>

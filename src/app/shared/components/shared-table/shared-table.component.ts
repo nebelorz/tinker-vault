@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, ViewChild, input, output, signal, computed, effect } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import type { TableColumn } from "../../../interfaces/shared-table-column.interface";
@@ -15,27 +15,56 @@ import { getImagePath } from "../../utils/image-path.util";
     styleUrl: "./shared-table.component.css",
 })
 export class SharedTableComponent<T = any> {
-    @Input() columns: TableColumn[] = [];
-    @Input() data: T[] = [];
-    @Input() selectedRow: T | null = null;
-    @Output() rowClicked = new EventEmitter<T>();
+    @ViewChild(SearchBoxComponent) searchBox!: SearchBoxComponent;
 
-    searchTerm = "";
+    columns = input<TableColumn[]>([]);
+    data = input<T[]>([]);
+    selectedId = input<string>("");
 
-    get filteredData(): T[] {
-        if (!this.searchTerm) return this.data;
-        const term = this.searchTerm.toLowerCase();
-        return this.data.filter((row: T) =>
-            this.columns.some((col) => {
+    rowClicked = output<T>();
+    searchPerformed = output<void>();
+
+    searchTerm = signal<string>("");
+    isSearching = signal<boolean>(false);
+
+    filteredData = computed(() => {
+        const term = this.searchTerm();
+        if (!term) return this.data();
+
+        return this.data().filter((row: T) =>
+            this.columns().some((col) => {
                 const value = (row as any)[col.key];
                 if (Array.isArray(value)) {
-                    return value.join(" ").toLowerCase().includes(term);
+                    return value.join(" ").toLowerCase().includes(term.toLowerCase());
                 }
                 return String(value ?? "")
                     .toLowerCase()
-                    .includes(term);
+                    .includes(term.toLowerCase());
             })
         );
+    });
+
+    constructor() {
+        effect(() => {
+            if (this.isSearching()) {
+                this.searchPerformed.emit();
+                this.isSearching.set(false);
+
+                setTimeout(() => {
+                    if (this.searchBox) {
+                        this.searchBox.focus();
+                    }
+                }, 0);
+            }
+        });
+    }
+
+    updateSearchTerm(term: string): void {
+        this.searchTerm.set(term);
+
+        if (term) {
+            this.isSearching.set(true);
+        }
     }
 
     isArray(value: unknown): value is unknown[] {
@@ -47,5 +76,9 @@ export class SharedTableComponent<T = any> {
         const id = (row as any).id;
         if (!id) return "";
         return getImagePath(category, id);
+    }
+
+    isRowSelected(row: T): boolean {
+        return (row as any).id === this.selectedId();
     }
 }

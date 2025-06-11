@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component } from "@angular/core";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
-  selector: 'app-sidenav',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.css'],
+    selector: "app-sidenav",
+    standalone: true,
+    imports: [RouterLink, RouterLinkActive],
+    templateUrl: "./sidenav.component.html",
+    styleUrls: ["./sidenav.component.css"],
 })
 export class SidenavComponent {}
