@@ -11,9 +11,29 @@
         </div>
     </div>
 
+    <!-- Displays when an NPC is selected -->
+    <div class="lg:hidden w-full text-center my-4" *ngIf="selectedNpc()">
+        <div class="flex flex-col items-center animate-bounce">
+            <span class="text-sm font-medium">NPC Details</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chevron-down">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </div>
+    </div>
+
     <!-- Selected NPC details -->
     @if (selectedNpc(); as npc) {
-    <div class="w-full lg:w-auto">
+    <div class="w-full lg:w-auto" id="npc-details">
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap">
             <!-- NPC Details-->
             <div class="w-full sm:w-[calc(50%-12px)] md:w-72 lg:w-80 xl:w-96 min-w-[280px] mb-4">

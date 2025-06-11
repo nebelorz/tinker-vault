@@ -83,6 +83,20 @@ body {
     }
 }
 
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
 @layer components {
     .dropdown-content {
         @apply border border-base-content/10 bg-base-200 rounded-box shadow text-sm;

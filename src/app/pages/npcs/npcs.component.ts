@@ -1,5 +1,6 @@
 import { Component, OnInit, signal, computed } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { CommonModule } from "@angular/common";
 
 import type { Npc } from "../../interfaces/npc.interface";
 import type { TableColumn } from "../../interfaces/shared-table-column.interface";
@@ -12,7 +13,7 @@ import { utilGetAllNpcs } from "../../shared/utils/extract-npc-data.util";
 @Component({
     selector: "app-npcs",
     standalone: true,
-    imports: [SharedTableComponent, DetailsCardComponent, TradesCardComponent],
+    imports: [CommonModule, SharedTableComponent, DetailsCardComponent, TradesCardComponent],
     templateUrl: "./npcs.component.html",
     styleUrl: "./npcs.component.css",
 })
@@ -42,12 +43,36 @@ export class NpcsComponent implements OnInit {
         const id = this.route.snapshot.paramMap.get("id");
         if (id) {
             this.selectedId.set(id);
+
+            // Small delay to ensure the DOM is updated before scrolling
+            setTimeout(() => {
+                const detailsElement = document.getElementById("npc-details");
+                if (detailsElement && window.innerWidth < 1024) {
+                    detailsElement.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            }, 300); // Slightly longer delay for initial load
         }
     }
 
     onRowClicked(row: Npc): void {
         this.selectedId.set(row.id);
         this.router.navigate(["/npcs", row.id]);
+
+        setTimeout(() => {
+            const detailsElement = document.getElementById("npc-details");
+            if (detailsElement) {
+                // On mobile, auto-scroll to the details
+                if (window.innerWidth < 1024) {
+                    detailsElement.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            }
+        }, 100);
     }
 
     clearSelectedNpc(): void {
