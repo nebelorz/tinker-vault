@@ -4,13 +4,10 @@
             <span>Trades</span>
         </h3>
 
-        @if (trades.isMerchant) {
-            <app-item-table 
-                [items]="trades.offer" 
-                [emptyMessage]="'No info about this.'"
-            ></app-item-table>
+        @if (trades().isMerchant) {
+        <app-item-table [items]="trades().offer"></app-item-table>
         } @else {
-            <p class="opacity-50 italic">This NPC does not sell anything.</p>
+        <p class="opacity-50 italic">This NPC does not sell anything.</p>
         }
     </section>
 </section>

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input } from "@angular/core";
 import { NpcHomeRequirement } from "../../../../interfaces/npc.interface";
 import { ItemTableComponent } from "../../../../shared/components/item-table/item-table.component";
 
@@ -9,5 +9,5 @@ import { ItemTableComponent } from "../../../../shared/components/item-table/ite
     templateUrl: "./section-home-requirements.component.html",
 })
 export class SectionHomeRequirements {
-    @Input() homeRequirements: NpcHomeRequirement[] = [];
+    homeRequirements = input<NpcHomeRequirement[]>([]);
 }

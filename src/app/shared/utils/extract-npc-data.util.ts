@@ -1,10 +1,13 @@
 import npcs from "../../../assets/data/npcs/npcs.json";
-import { getImagePath } from "./image-path.util";
+
+export function getNpcImagePath(id: string, extension = "webp"): string {
+    return `assets/images/npcs/${id}.${extension}`;
+}
 
 export function utilGetAllNpcs() {
     return npcs.map((npc) => ({
         ...npc,
-        image: getImagePath("npcs", npc.id),
+        image: getNpcImagePath(npc.id),
     }));
 }
 
@@ -14,6 +17,6 @@ export function utilGetNpcAssetsById(id: string) {
 
     return {
         ...npc,
-        image: getImagePath("npcs", id),
+        image: getNpcImagePath(id),
     };
 }

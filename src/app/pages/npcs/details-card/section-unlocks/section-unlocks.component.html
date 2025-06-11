@@ -2,9 +2,9 @@
     <h3 class="text-base font-bold flex items-center gap-2 mb-1">
         <span>Unlocks</span>
     </h3>
-    @if (unlocks.length) {
+    @if (unlocks().length) {
     <ul>
-        @for (unlock of unlocks; track unlock) {
+        @for (unlock of unlocks(); track unlock) {
         <li class="opacity-70 mb-1">
             {{ unlock }}
         </li>

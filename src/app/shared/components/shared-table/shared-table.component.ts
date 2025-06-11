@@ -5,7 +5,8 @@ import type { TableColumn } from "../../../interfaces/shared-table-column.interf
 
 import { SearchBoxComponent } from "../search-box/search-box.component";
 
-import { getImagePath } from "../../utils/image-path.util";
+import { getNpcImagePath } from "../../utils/extract-npc-data.util";
+import { getItemImagePath } from "../../utils/extract-item-data.util";
 
 @Component({
     selector: "app-shared-table",
@@ -72,10 +73,17 @@ export class SharedTableComponent<T = any> {
     }
 
     getImageSrc(row: T, colKey: string): string {
-        const category = (row as any).category || "default";
+        const category = (row as any).category;
         const id = (row as any).id;
         if (!id) return "";
-        return getImagePath(category, id);
+
+        if (category === "npcs") {
+            return getNpcImagePath(id);
+        } else if (category === "items") {
+            return getItemImagePath(id);
+        }
+
+        return `assets/images/${category || "default"}/${id}.webp`;
     }
 
     isRowSelected(row: T): boolean {

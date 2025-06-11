@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input } from "@angular/core";
 
 @Component({
     selector: "app-section-how-to-obtain",
@@ -7,5 +7,5 @@ import { Component, Input } from "@angular/core";
     templateUrl: "./section-how-to-obtain.component.html",
 })
 export class SectionHowToObtainComponent {
-    @Input() text? = "";
+    text = input<string>("");
 }

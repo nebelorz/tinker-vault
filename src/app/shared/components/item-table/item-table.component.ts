@@ -17,7 +17,6 @@ import { idToTitle } from "../../utils/string-format.util";
 })
 export class ItemTableComponent {
     items = input<ItemTableEntry[]>([]);
-    emptyMessage = input("No items to display.");
 
     private searchTerm = signal("");
 

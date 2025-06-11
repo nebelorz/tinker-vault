@@ -1,9 +1,18 @@
 import { ItemTableEntry } from "../../interfaces/item-table.interface";
-import { getImagePath } from "./image-path.util";
-import { idToTitle } from "./string-format.util";
+
+function idToTitle(id: string): string {
+    return id
+        .split("_")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+}
+
+export function getItemImagePath(id: string, extension = "webp"): string {
+    return `assets/images/items/${id}.${extension}`;
+}
 
 export function utilGetItemImageSrc(item: ItemTableEntry): string {
-    return getImagePath("items", item.id);
+    return getItemImagePath(item.id);
 }
 
 export function utilGetItemName(item: ItemTableEntry): string {

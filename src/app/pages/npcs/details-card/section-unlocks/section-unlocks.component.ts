@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input } from "@angular/core";
 
 @Component({
     selector: "app-section-unlocks",
@@ -7,5 +7,5 @@ import { Component, Input } from "@angular/core";
     templateUrl: "./section-unlocks.component.html",
 })
 export class SectionUnlocksComponent {
-    @Input() unlocks: string[] = [];
+    unlocks = input<string[]>([]);
 }
