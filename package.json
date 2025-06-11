@@ -7,7 +7,7 @@
         "build": "ng build --configuration production",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "deploy:gh-pages": "ng build --base-href /tinker-vault/ && npx angular-cli-ghpages --dir=dist/tinker-vault"
+        "build:gh-pages": "ng build --base-href=/tinker-vault/"
     },
     "private": true,
     "dependencies": {
