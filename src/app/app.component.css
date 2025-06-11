@@ -1,8 +1,31 @@
 .app-container {
-  padding: 8px;
-  display: flex;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav-container {
+    margin-bottom: 16px;
 }
 
 .content {
-  margin-left: 24px;
+    width: 100%;
+    padding: 0 8px;
+}
+
+/* Responsive layout for tablets and desktops */
+@media (min-width: 768px) {
+    .app-container {
+        flex-direction: row;
+    }
+
+    .sidenav-container {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+
+    .content {
+        flex: 1;
+        padding: 0;
+    }
 }

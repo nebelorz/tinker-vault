@@ -10,8 +10,47 @@
     logs: true;
 }
 
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
 body {
     font-family: "Montserrat", Arial, sans-serif;
+    position: relative;
+    font-size: 16px;
+}
+
+/* Adjust font size for mobile */
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+
+    .table.table-xs th,
+    .table.table-xs td {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Hide table on mobile and show card view instead */
+    .overflow-x-auto table {
+        display: none;
+    }
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 767px) {
+    button,
+    a,
+    [role="button"],
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
 }
 
 .btn-discord:not(:disabled) {

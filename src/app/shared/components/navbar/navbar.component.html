@@ -1,19 +1,14 @@
-<div class="navbar bg-base-300 shadow-lg min-h-8 h-8 py-0.5">
-  <!-- Logo -->
-  <div class="ps-4">
-    <a
-      [routerLink]="['/']"
-      routerLinkActive="router-link-active"
-      class="text-base font-bold flex items-center gap-2"
-      aria-label="Go to homepage"
-    >
-      <!-- <img src="assets/logo.svg" alt="TinkerVault logo" class="h-6 w-6" /> -->
-      TinkerVault
-    </a>
-  </div>
+<div class="navbar bg-base-300 shadow-lg min-h-12 h-auto py-2 md:min-h-8 md:h-8 md:py-0.5">
+    <!-- Logo -->
+    <div class="ps-4">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" class="text-base font-bold flex items-center gap-2" aria-label="Go to homepage">
+            <!-- <img src="assets/logo.svg" alt="TinkerVault logo" class="h-6 w-6" /> -->
+            TinkerVault
+        </a>
+    </div>
 
-  <div class="ml-auto flex items-center gap-2 pr-2">
-    <app-theme-toggle />
-    <app-more-options />
-  </div>
+    <div class="ml-auto flex items-center gap-3 pr-3 md:gap-2 md:pr-2">
+        <app-theme-toggle />
+        <app-more-options />
+    </div>
 </div>

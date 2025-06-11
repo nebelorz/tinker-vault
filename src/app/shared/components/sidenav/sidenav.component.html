@@ -1,11 +1,11 @@
-<ul class="menu bg-base-300 rounded-box shadow-lg w-40">
+<ul class="menu bg-base-300 rounded-box shadow-lg w-full md:w-40 flex flex-row md:flex-col">
     <!-- NPCs -->
     <li>
-        <a [routerLink]="['/npcs']" routerLinkActive="router-link-active menu-active">NPCs</a>
+        <a [routerLink]="['/npcs']" routerLinkActive="router-link-active menu-active" class="justify-center md:justify-start">NPCs</a>
     </li>
 
     <!-- Items -->
     <li class="menu-disabled">
-        <a [routerLink]="['/items']" routerLinkActive="router-link-active menu-active">Items</a>
+        <a [routerLink]="['/items']" routerLinkActive="router-link-active menu-active" class="justify-center md:justify-start">Items</a>
     </li>
 </ul>

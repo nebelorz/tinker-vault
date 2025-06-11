@@ -4,12 +4,12 @@
     </div>
 </div>
 
-<div class="overflow-x-auto mx-auto" style="max-width: 50vw">
+<div class="overflow-x-auto w-full">
     <table class="table table-xs w-full">
         <thead>
             <tr>
                 @for (col of columns(); track col.key) {
-                <th [ngClass]="col.class" [style.width]="col.width || null">
+                <th [ngClass]="col.class" [style.width]="col.width || null" class="whitespace-nowrap">
                     {{ col.label }}
                 </th>
                 }
@@ -19,11 +19,11 @@
             @for (row of filteredData(); track $index) {
             <tr class="cursor-pointer hover:bg-base-200 transition-colors" [class.bg-base-300]="isRowSelected(row)" (click)="rowClicked.emit(row)">
                 @for (col of columns(); track col.key) {
-                <td [ngClass]="col.class" [style.width]="col.width || null">
+                <td [ngClass]="col.class" [style.width]="col.width || null" class="whitespace-nowrap">
                     @switch (col.type) { @case ('image') {
                     <div class="avatar">
                         <div class="mask mask-squircle w-6 h-6">
-                            <img [src]="getImageSrc(row, col.key)" [alt]="$any(row)['name'] || col.label" />
+                            <img [src]="getImageSrc(row, col.key)" [alt]="$any(row)['name'] || col.label" loading="lazy" />
                         </div>
                     </div>
                     } @case ('array') {
@@ -39,4 +39,35 @@
             }
         </tbody>
     </table>
+</div>
+
+<!-- Mobile Card View (only visible on small screens) -->
+<div class="md:hidden mt-4">
+    @for (row of filteredData(); track $index) {
+    <div class="card bg-base-200 shadow-sm mb-3 cursor-pointer" [class.bg-base-300]="isRowSelected(row)" (click)="rowClicked.emit(row)">
+        <div class="card-body p-4">
+            <div class="flex items-center gap-3 mb-2">
+                @for (col of columns(); track col.key) { @if (col.type === 'image') {
+                <div class="avatar">
+                    <div class="mask mask-squircle w-8 h-8">
+                        <img [src]="getImageSrc(row, col.key)" [alt]="$any(row)['name'] || col.label" loading="lazy" />
+                    </div>
+                </div>
+                } }
+                <h3 class="card-title text-base">{{ $any(row)["name"] }}</h3>
+            </div>
+
+            @for (col of columns(); track col.key) { @if (col.key !== 'image' && col.key !== 'name') {
+            <div class="text-sm mb-1">
+                <span class="font-semibold">{{ col.label }}: </span>
+                @switch (col.type) { @case ('array') {
+                <span>{{ isArray($any(row)[col.key]) ? $any(row)[col.key].join(", ") : $any(row)[col.key] }}</span>
+                } @default {
+                <span>{{ $any(row)[col.key] }}</span>
+                } }
+            </div>
+            } }
+        </div>
+    </div>
+    }
 </div>
